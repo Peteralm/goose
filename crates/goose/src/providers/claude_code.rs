@@ -335,6 +335,7 @@ impl ClaudeCodeProvider {
         configure_subprocess(&mut cmd);
         // Allow goose to run inside a Claude Code session.
         cmd.env_remove("CLAUDECODE");
+        cmd.env("CLAUDE_CODE_ENTRYPOINT", "goose");
         cmd.arg("--input-format")
             .arg("stream-json")
             .arg("--output-format")
